@@ -64,8 +64,8 @@ export default defineConfig({
         text: "Programación Orientada a Objetos",
         items: [
           { text: "Conceptos Básicos", link: "/poo/conceptos-basicos" },
-          { text: "Clases y Herencia", link: "/poo/clases-herencia" },
-          { text: "Encapsulación y Polimorfismo", link: "/poo/encapsulacion" },
+          { text: "Clases", link: "/poo/clases" },
+          { text: "Herencia", link: "/poo/herencia" },
         ],
       },
       {
