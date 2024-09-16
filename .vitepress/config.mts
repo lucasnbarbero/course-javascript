@@ -100,6 +100,10 @@ export default defineConfig({
             text: "Bucles",
             link: "/exercises/bucles",
           },
+          {
+            text: "Funciones",
+            link: "/exercises/funciones",
+          },
         ],
       },
     ],
