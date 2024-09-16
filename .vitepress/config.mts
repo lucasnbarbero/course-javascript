@@ -89,6 +89,19 @@ export default defineConfig({
           { text: "Módulos", link: "/es6/modulos" },
         ],
       },
+      {
+        text: "Ejercicios",
+        items: [
+          {
+            text: "Condicionales",
+            link: "/exercises/ifelse",
+          },
+          {
+            text: "Bucles",
+            link: "/exercises/bucles",
+          },
+        ],
+      },
     ],
 
     socialLinks: [{ icon: "github", link: "https://github.com/vuejs/vitepress" }],
