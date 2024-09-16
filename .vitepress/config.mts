@@ -104,6 +104,14 @@ export default defineConfig({
             text: "Funciones",
             link: "/exercises/funciones",
           },
+          {
+            text: "Arrays",
+            link: "/exercises/arrays",
+          },
+          {
+            text: "Objetos",
+            link: "/exercises/objetos",
+          },
         ],
       },
     ],

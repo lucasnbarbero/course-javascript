@@ -41,3 +41,102 @@ sexo y la edad del conductor.
 
 Desarrollar un algoritmo que muestre el nombre, la edad y el sexo del conductor con el
 monto de la póliza correspondiente.
+
+## Resultados
+
+### Positivo, negativo o cero
+
+```js
+let a = prompt("Ingrese un numero");
+
+if (a > 0) {
+  alert("El numero es positivo");
+} else if (a < 0) {
+  alert("El numero es negativo");
+} else {
+  alert("El numero es neutro");
+}
+```
+
+### Par o impar
+
+```js
+let b = prompt("Ingrese un numero");
+
+if (b % 2 === 0) {
+  alert("El numero es par");
+} else {
+  alert("El numero es impar");
+}
+```
+
+### Mostrar mayor
+
+```js
+let c = prompt("Ingrese el primer numero");
+let d = prompt("Ingrese el segundo numero");
+
+if (c > d) {
+  alert("El primer numero es el mayor");
+} else if (d > c) {
+  alert("El segundo es el mayor");
+} else {
+  alert("Los dos numeros son iguales");
+}
+```
+
+### Mayor de tres
+
+```js
+let num1 = prompt("Ingrese el primero numero");
+let num2 = prompt("Ingrese el segundo numero");
+let num3 = prompt("Ingrese el tercer numero");
+
+if (num1 > num2 && num1 > num3) {
+  alert("El primer numero es el mayor");
+} else if (num2 > num1 && num2 > num3) {
+  alert("El sgundo numero es el mayor");
+} else if (num3 > num1 && num3 > num2) {
+  alert("El tercer numero es el mayor");
+} else {
+  alert("Los 3 numeros son iguales");
+}
+```
+
+### Calcular salario
+
+```js
+let horasTrabajadas = prompt("Ingrese la cantidad de horas");
+let salario;
+
+if (horasTrabajadas <= 40) {
+  salario = horasTrabajadas * 150;
+} else {
+  let horasExtras = horasTrabajadas - 40;
+  salario = 40 * 150 + horasExtras * 250;
+}
+
+alert("El salario semanal es de: $" + salario);
+alert(`El salario semanal es de: ${salario}`);
+```
+
+### Seguro de automóviles
+
+```js
+let edad = prompt("Ingrese la edad");
+let sexo = prompt("Ingrese el sexo(M o F)");
+let precioPoliza;
+
+if (sexo === "M") {
+  if (edad < 25) {
+    precioPoliza = 1000;
+  } else {
+    precioPoliza = 700;
+  }
+} else {
+  if (edad < 21) precioPoliza = 800;
+  else precioPoliza = 1200;
+}
+
+alert(`El conductor debe pagar $ ${precioPoliza}`);
+```
