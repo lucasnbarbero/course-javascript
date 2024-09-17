@@ -112,6 +112,10 @@ export default defineConfig({
             text: "Objetos",
             link: "/exercises/objetos",
           },
+          {
+            text: "Integrador 1",
+            link: "/exercises/integrador-1",
+          },
         ],
       },
     ],
