@@ -1,147 +1,142 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Tareas</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+        margin: 0;
+      }
 
-        .todo-container {
-            width: 400px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
+      .todo-container {
+        width: 400px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
 
-        #taskInput {
-            width: calc(100% - 22px);
-            padding: 10px;
-            font-size: 16px;
-            margin-right: 10px;
-        }
+      #taskInput {
+        width: calc(100% - 22px);
+        padding: 10px;
+        font-size: 16px;
+        margin-right: 10px;
+      }
 
-        #addTaskBtn {
-            padding: 10px;
-            font-size: 16px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+      #addTaskBtn {
+        padding: 10px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
 
-        #addTaskBtn:hover {
-            background-color: #45a049;
-        }
+      #addTaskBtn:hover {
+        background-color: #45a049;
+      }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
 
-        li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
 
-        li.completed {
-            text-decoration: line-through;
-            background-color: #e0ffe0;
-        }
+      li.completed {
+        text-decoration: line-through;
+        background-color: #e0ffe0;
+      }
 
-        .complete-btn, .delete-btn {
-            background-color: #f9a825;
-            color: white;
-            border: none;
-            padding: 5px;
-            cursor: pointer;
-        }
+      .complete-btn,
+      .delete-btn {
+        background-color: #f9a825;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+      }
 
-        .complete-btn:hover {
-            background-color: #f57f17;
-        }
+      .complete-btn:hover {
+        background-color: #f57f17;
+      }
 
-        .delete-btn {
-            background-color: #f44336;
-        }
+      .delete-btn {
+        background-color: #f44336;
+      }
 
-        .delete-btn:hover {
-            background-color: #d32f2f;
-        }
+      .delete-btn:hover {
+        background-color: #d32f2f;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="todo-container">
-        <input type="text" id="taskInput" placeholder="Agregar nueva tarea">
-        <button id="addTaskBtn">Agregar</button>
-        <ul id="taskList">
-            <!-- Las tareas se agregarán aquí dinámicamente -->
-        </ul>
+      <input type="text" id="taskInput" placeholder="Agregar nueva tarea" />
+      <button id="addTaskBtn">Agregar</button>
+      <ul id="taskList">
+        <!-- Las tareas se agregarán aquí dinámicamente -->
+      </ul>
     </div>
     <script>
-        const addTaskBtn = document.getElementById('addTaskBtn');
-        const taskInput = document.getElementById('taskInput');
-        const taskList = document.getElementById('taskList');
+      const addTaskBtn = document.getElementById("addTaskBtn");
+      const taskInput = document.getElementById("taskInput");
+      const taskList = document.getElementById("taskList");
 
-        let tasks = [];
+      let tasks = [];
 
-        // Función para agregar tarea
-        addTaskBtn.addEventListener('click', function() {
-            const taskText = taskInput.value.trim();
-            if (taskText === '') return;
+      // Función para agregar tarea
+      addTaskBtn.addEventListener("click", function () {
+        const taskText = taskInput.value.trim();
+        if (taskText === "") return;
 
-            const task = { text: taskText, completed: false };
-            tasks.push(task);
-            taskInput.value = '';
-            renderTasks();
-        });
+        const task = { text: taskText, completed: false };
+        tasks.push(task);
+        taskInput.value = "";
+        renderTasks();
+      });
 
-        // Función para renderizar tareas
-        function renderTasks() {
-            taskList.innerHTML = '';
-            tasks.forEach((task, index) => {
-                const li = document.createElement('li');
-                li.className = task.completed ? 'completed' : '';
-                li.innerHTML = `
+      // Función para renderizar tareas
+      function renderTasks() {
+        taskList.innerHTML = "";
+        tasks.forEach((task) => {
+          const li = document.createElement("li");
+          li.className = task.completed ? "completed" : "";
+          li.innerHTML = `
                     ${task.text}
                     <div>
-                        <button class="complete-btn" data-index="${index}">Completar</button>
-                        <button class="delete-btn" data-index="${index}">Eliminar</button>
+                        <button class="complete-btn">Completar</button>
+                        <button class="delete-btn">Eliminar</button>
                     </div>
                 `;
-                taskList.appendChild(li);
-            });
+          taskList.appendChild(li);
 
-            // Agregar eventos a botones
-            document.querySelectorAll('.complete-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const index = this.getAttribute('data-index');
-                    tasks[index].completed = !tasks[index].completed;
-                    renderTasks();
-                });
-            });
+          // Agregar eventos a botones de completar y eliminar
+          li.querySelector(".complete-btn").addEventListener("click", function () {
+            task.completed = !task.completed;
+            renderTasks();
+          });
 
-            document.querySelectorAll('.delete-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const index = this.getAttribute('data-index');
-                    tasks.splice(index, 1);
-                    renderTasks();
-                });
-            });
-        }
+          li.querySelector(".delete-btn").addEventListener("click", function () {
+            tasks = tasks.filter((t) => t !== task);
+            renderTasks();
+          });
+        });
+      }
     </script>
-</body>
+  </body>
 </html>
