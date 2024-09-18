@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .todo-container {
+            width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        #taskInput {
+            width: calc(100% - 22px);
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        #addTaskBtn {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #addTaskBtn:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+            background-color: #e0ffe0;
+        }
+
+        .complete-btn, .delete-btn {
+            background-color: #f9a825;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .complete-btn:hover {
+            background-color: #f57f17;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+        }
+
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <input type="text" id="taskInput" placeholder="Agregar nueva tarea">
+        <button id="addTaskBtn">Agregar</button>
+        <ul id="taskList">
+            <li>
+                Tarea de ejemplo
+                <div>
+                    <button class="complete-btn">Completar</button>
+                    <button class="delete-btn">Eliminar</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

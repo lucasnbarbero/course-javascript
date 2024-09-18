@@ -116,6 +116,11 @@ export default defineConfig({
             text: "Integrador 1",
             link: "/exercises/integrador-1",
           },
+          {
+            text: "Dom",
+            link: "/exercises/dom",
+          },
+          
         ],
       },
     ],

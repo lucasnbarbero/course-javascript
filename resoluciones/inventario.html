@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Inventario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            margin: 20px auto;
+        }
+
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        .delete-btn {
+            background-color: red;
+            color: white;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+
+        #searchInput {
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            max-width: 300px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sistema de Gestión de Inventario</h1>
+
+    <!-- Formulario para agregar productos -->
+    <form id="productForm">
+        <input type="text" id="name" placeholder="Nombre del producto" required>
+        <input type="number" id="quantity" placeholder="Cantidad" required>
+        <input type="number" id="price" placeholder="Precio" required>
+        <button type="submit">Agregar Producto</button>
+    </form>
+
+    <!-- Campo de búsqueda de productos -->
+    <input type="text" id="searchInput" placeholder="Buscar producto por nombre">
+
+    <!-- Tabla que muestra los productos -->
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los productos se agregarán aquí dinámicamente -->
+        </tbody>
+    </table>
+
+    <script>
+        const form = document.getElementById('productForm');
+        const productTableBody = document.querySelector('#productTable tbody');
+        const searchInput = document.getElementById('searchInput');
+        let inventory = [];
+
+        // Función para agregar producto al inventario
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const quantity = document.getElementById('quantity').value;
+            const price = document.getElementById('price').value;
+
+            const product = {
+                name,
+                quantity: parseInt(quantity),
+                price: parseFloat(price)
+            };
+
+            inventory.push(product);
+            displayProducts();
+            form.reset();
+        });
+
+        // Función para mostrar productos en la tabla
+        function displayProducts() {
+            productTableBody.innerHTML = ''; // Limpiar la tabla
+
+            inventory.forEach((product, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.name}</td>
+                    <td>${product.quantity}</td>
+                    <td>$${product.price.toFixed(2)}</td>
+                    <td><button class="delete-btn" data-index="${index}">Eliminar</button></td>
+                `;
+                productTableBody.appendChild(row);
+            });
+
+            // Agregar evento a los botones de eliminar
+            document.querySelectorAll('.delete-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const index = this.getAttribute('data-index');
+                    inventory.splice(index, 1);
+                    displayProducts();
+                });
+            });
+        }
+
+        // Función para buscar productos por nombre
+        searchInput.addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            document.querySelectorAll('#productTable tbody tr').forEach(row => {
+                const productName = row.cells[0].innerText.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    row.classList.add('highlight');
+                } else {
+                    row.classList.remove('highlight');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
