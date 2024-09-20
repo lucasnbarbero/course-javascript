@@ -120,7 +120,10 @@ export default defineConfig({
             text: "Dom",
             link: "/exercises/dom",
           },
-          
+          {
+            text: "Ejercicio final",
+            link: "/exercises/proyecto-final",
+          },
         ],
       },
     ],

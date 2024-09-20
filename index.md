@@ -10,9 +10,6 @@ hero:
     - theme: brand
       text: Comenzar con JavaScript
       link: /intro/javascript
-    - theme: alt
-      text: Ver el proyecto final
-      link: /proyecto-final
 
 features:
   - title: Introducción a JavaScript
